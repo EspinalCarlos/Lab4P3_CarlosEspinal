@@ -10,18 +10,41 @@ void menu() {
     cout << "---- MENU PRINCIPAL ---- \n\n" << "Opcion 1: Palabra mas larga \nOpcion 2: Rotacion de matriz \nOpcion 3: SALIDA \n" << "Ingrese la opcion que desea acceder: ";
 }
 
-int** produccion(int sizeM, int sizeN) {
+void produccion(int sizeM, int sizeN) {
     int** matriz = new int* [sizeM];
     for (size_t i = 0; i < sizeM; i++){
         matriz[i] = new int[sizeN];
     }
 
-    for (int i = 0; i < length; i++)
-    {
-
+    for (int i = 0; i < sizeM; i++){
+        for (size_t j = 0;  j < sizeN;  j++){
+            int random = rand() % (99 - 1); 
+            matriz[i][j] = random;
+        }
+        
     }
+    cout << "Matriz Original: " << endl;
+    for (size_t i = 0; i < sizeM; i++){
+        for (size_t j = 0; j < sizeN; j++){
+            cout << matriz[i][j] << " ";
+        }
+        cout << endl;
+    }
+    int** matriz2 = matriz;
+    cout << endl << endl;
+    for (size_t i = 0; i < sizeM; i++){
+        for (size_t j = 0; j < sizeN; j++){
+            matriz2[sizeM - j - 1][i] = matriz[i][j]; 
 
-    return matriz;
+        }
+    }
+    cout << endl << "Matriz rotada: \n";
+    for (size_t i = 0; i < sizeM; i++) {
+        for (size_t j = 0; j < sizeN; j++) {
+            cout << matriz2[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
 int main(){
@@ -67,12 +90,15 @@ int main(){
                 }
                     break;
             case 2:
-                cout << "Ingrese el size de filas: ";
-                cin >> M;
-                cout << endl;
-                cout << "Ingrese el size de columnas: ";
-                cin >> N;
-
+                do {
+                    cout << "Ingrese el size de filas: ";
+                    cin >> M;
+                    cout << endl;
+                    cout << "Ingrese el size de columnas: ";
+                    cin >> N;
+                    
+                } while (M < 4 || N < 4);
+                produccion(M, N);
 
                 break;
 
