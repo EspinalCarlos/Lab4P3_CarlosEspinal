@@ -98,7 +98,7 @@ int main(){
                     cin >> N;
                     
                 } while (M < 4 || N < 4);
-                produccion(M, N);
+                produccion(M,N);
 
                 break;
 
