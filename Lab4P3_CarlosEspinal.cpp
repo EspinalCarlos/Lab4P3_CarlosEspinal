@@ -1,20 +1,41 @@
-// Lab4P3_CarlosEspinal.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+#include <vector>
+#include <cstring>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+void menu() {
+    cout << "---- MENU PRINCIPAL ---- \n\n" << "Opcion 1: Palabra mas larga \nOpcion 2: Rotacion de matriz \nOpcion 3: SALIDA \n" << "Ingrese la opcion que desea acceder: ";
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
+int main(){
+    int opcion;
+    do {
+        menu();
+        cin >> opcion;
+        cout << endl;
+        char oracionin[100];
+        char* chptr = strtok(oracionin, " ");
+        vector<string> tokens;
+        switch (opcion) {
+            case 1:
+                cout << "Ingrese una oracion: ";
+                cout << endl;
+                cin >> oracionin;
+                cout << oracionin;
+                while (chptr != nullptr) {
 
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+                }
+
+                break;
+        }
+        char salir;
+        cout << "Desea seguir utilizando el programa [S/N]: ";
+        cin >> salir;
+        if (salir == 'n' || salir == 'N') {
+            opcion == 3; 
+        }
+
+    } while (opcion != 3);
+}
+
